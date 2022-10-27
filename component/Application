@@ -1,0 +1,65 @@
+<?php
+
+namespace app\components;
+
+use app\components\base\{Application as BaseApplication,ComponentFactory};
+
+
+//  backbone of application.. 
+
+class Application extends BaseApplication
+{
+
+    public $name = '';
+    public $controller;
+
+    // start the app
+    public function run()
+    {
+
+        $this->preInit();
+
+        $this->init();
+
+        $this->bootstrap();
+
+    }
+
+    
+    private function preInit()
+    {
+        // load configs
+        $this->name = $this->_config['name'];
+    }
+
+    
+    private function init()
+    {
+        // Initialize components
+        if (is_array($this->_config['components'])) {
+            
+            foreach ($this->_config['components'] as $name => $component) {
+                
+                $component = ComponentFactory::create($name, $component);
+                $this->$name = $component;
+                $component->bootstrap();
+            }
+        }
+
+        // handle requests and got to route
+        $this->resolveRoutes();
+    }
+
+   
+    private function bootstrap()
+    {
+        // TODO: launch controller
+    }
+
+
+    private function resolveRoutes()
+    {
+
+        //TODO: call router here
+    }
+}
