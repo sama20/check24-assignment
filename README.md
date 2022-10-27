@@ -11,11 +11,19 @@ install composer **done**
 
 Create a git repo **done**
 
-Push first commit into git hub and send to Bjorn **done**
+Application core: main core **done**
 
-Create the core of the application to handle request and routing **on-going**
+Application core: component loading (mysql connection) **done**
 
-Create controllers based on project
+Application core: routing **done**
+
+Application core: Auth **_ignored for now_**
+
+Application core: validators **_ignored for now_**
+
+Application core: error handling **_ignored for now_**
+
+Create controllers based on project **ongoing**
 
 Create Models
 
