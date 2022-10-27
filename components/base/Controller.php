@@ -24,7 +24,11 @@ abstract class Controller extends Base {
         include $viewFile . '.php';
     }
 
+    public function redirect($route) {
 
+        header("Location: index.php?r=$route");
+        die();
+    }
 
 }
 

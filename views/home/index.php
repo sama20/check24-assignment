@@ -1,4 +1,5 @@
-
+<?php $this->render('views/layout/header', []); ?>
+<?php $this->render('views/layout/menu', []); ?>
 <?php
 
 use app\components\commons\Helper;
@@ -17,7 +18,9 @@ if (is_array($posts) && count($posts) > 0) {
             <tr>
                 <th colspan="2">
                     <a href="./index.php?r=post/detail&id=<?php echo $post->id ?>">
-                        
+                        <?php
+                        echo Helper::dateFormat($post->date_insert, 'd.m.Y');
+                        ?> : <?php echo $post->title ?>
                     </a>
                 </th>
             </tr>
@@ -30,8 +33,6 @@ if (is_array($posts) && count($posts) > 0) {
             </tr>
         </table>
         <br>
-    <?php
+<?php
     }
 } ?>
-
-
