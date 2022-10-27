@@ -1,0 +1,16 @@
+{
+    "name": "moha/check24",
+    "description": "This is a repository for a code challange",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "10.0.x-dev"
+    },
+    "authors": [
+        {
+            "name": "moha asghari",
+            "email": "moha.asghari@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

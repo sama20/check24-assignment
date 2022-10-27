@@ -1,0 +1,27 @@
+<?php
+
+namespace app\components;
+
+
+class Application 
+{
+
+    public function run()
+    {
+
+    }
+    public function init()
+    {
+
+    }
+
+    function bootstrap()
+    {
+    }
+
+
+    public static function getInstance()
+    {
+        
+    }
+}
