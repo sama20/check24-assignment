@@ -25,9 +25,9 @@ Application core: error handling **_ignored for now_**
 
 Create controllers based on project **ongoing**
 
-Create Models
+Create Models **ongoing**
 
-Create Views
+Create Views **ongoing**
 
 Add validation and errors
 

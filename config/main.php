@@ -2,6 +2,7 @@
 
 return [
     'name' => 'moha App',
+    'defaultRoute' => 'home/index',
     'components' => [
         'db' => [
             'class' => 'app\components\MySqlConnection',
