@@ -2,7 +2,7 @@
 
 namespace app\components;
 
-use app\components\base\{Application as BaseApplication,ComponentFactory};
+use app\components\base\{Application as BaseApplication,ComponentFactory, ControllerFactory, Router};
 
 
 //  backbone of application.. 
@@ -11,6 +11,7 @@ class Application extends BaseApplication
 {
 
     public $name = '';
+    public $router;
     public $controller;
 
     // start the app
@@ -53,13 +54,16 @@ class Application extends BaseApplication
    
     private function bootstrap()
     {
-        // TODO: launch controller
+        $this->controller->callAction($this->router->getActionName());
     }
 
 
     private function resolveRoutes()
     {
 
-        //TODO: call router here
+        $router = new Router($this);
+        $this->router = $router;
+        //create the controller and run action
+        $this->controller = ControllerFactory::create($router->getControllerName());
     }
 }
