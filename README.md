@@ -3,37 +3,12 @@
 ## This is a repository for a code challange
 
 
-**TODO LIST:**
+**install:**
 
-Frist create folders based on mvc (below pic) **done**
+clone the code.
 
-install composer **done**
+go to the 'docs' 
 
-Create a git repo **done**
+import sql in your database
 
-Application core: main core **done**
-
-Application core: component loading (mysql connection) **done**
-
-Application core: routing **done**
-
-Application core: Auth **_ignored for now_**
-
-Application core: validators **_ignored for now_**
-
-Application core: error handling **_ignored for now_**
-
-Create controllers based on project **ongoing**
-
-Create Models **ongoing**
-
-Create Views **ongoing**
-
-Add validation and errors
-
-Add document
-
-Add tests
-
-
-![](https://iili.io/Dp2keR.jpg)
+change the 'config/main.php'
