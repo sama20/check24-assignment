@@ -1,4 +1,6 @@
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-$app = \app\components\Application::getInstance();
+
+$config = require(__DIR__ . '/config/main.php');
+$app = \app\components\Application::getInstance($config);
 $app->run();
