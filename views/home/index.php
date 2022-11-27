@@ -1,4 +1,5 @@
 <?php $this->render('views/layout/header', []); ?>
+<?php $this->render('views/layout/bunner', []); ?>
 <?php $this->render('views/layout/menu', []); ?>
 <?php
 
@@ -14,7 +15,7 @@ $posts = $params['posts'];
 if (is_array($posts) && count($posts) > 0) {
     foreach ($posts as $post) {
 ?>
-        <table>
+        <table class="table table-bordered">
             <tr>
                 <th colspan="2">
                     <a href="./index.php?r=post/detail&id=<?php echo $post->id ?>">
@@ -33,6 +34,14 @@ if (is_array($posts) && count($posts) > 0) {
             </tr>
         </table>
         <br>
-<?php
+    <?php
     }
-} ?>
+} else {
+    ?>
+    <div class="alert alert-info" role="alert">No posts were published yet.</div>
+<?php
+}
+?>
+
+
+<?php $this->render('views/layout/footer', []); ?>

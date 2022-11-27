@@ -4,6 +4,7 @@ namespace app\components;
 
 use app\components\Application as ComponentsApplication;
 use app\components\base\{Application as BaseApplication,ComponentFactory,Component,ControllerFactory};
+use app\components\Router;
 
 
 /**

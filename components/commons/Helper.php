@@ -17,8 +17,12 @@ class Helper
         }
         return $value;
     }
-    
-    
+    /**
+     * Format the date in a specific format
+     * @param type string
+     * @param type string
+     * @return type string
+     */
     static function dateFormat($value, $format)
     {
         $date = new \DateTime($value);

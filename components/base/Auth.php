@@ -1,57 +1,49 @@
 <?php
 
-namespace app\components;
+namespace app\components\base;
 
-use app\components\base\Base;
-use app\models\Author;
+use app\components\base\ModelError;
 
+/**
+ * Class that define authentication proccess
+ * 
+ * @author victor.leite@gmail.com
+ */
+abstract class Auth extends Base {
+    /**
+     * Errors array of this model
+     * @var type 
+     */
+    protected $errors = [];
 
-class Auth extends Base {
+    abstract public function login();
 
-    public $defaultPage = 'home/login';
+    abstract static function isLogged();
 
-    public static function create() {
-        return new Auth();
+    abstract static function logout();
+    /**
+     * Add error to this model
+     * @param ModelError $error
+     */
+    protected function addError(ModelError $error) {
+        $this->errors[] = $error;
     }
-
-    public function login() {
-
-        $author = Author::findByUserName($this->login);
-        $this->id = $author->id;
-
-        if (null !== $author) {
-            if ($author->password === $this->password) {
-                $this->setSession();
-                return true;
-            }
+    /**
+     * Check if there is erros attached within this model
+     * @return boolean
+     */
+    public function hasErrors() {
+        if (count($this->errors) > 0) {
+            return true;
         }
         return false;
     }
-    
-    static function isLogged() {
-
-        if (isset($_SESSION['id']) &&  isset($_SESSION['login']) && isset($_SESSION['password'])) {
-            return false;
-        }
-
-        return true;
-    }
-    
-    private function setSession() {
-
-        $_SESSION['id'] = $this->id;
-        $_SESSION['login'] = $this->login;
-        $_SESSION['password'] = $this->password;
-    }
-    
-    static function getSession($key) {
-        return $_SESSION[$key] ?? null;
-    }
-    
-    static function logout() {
-        unset($_SESSION['id']);
-        unset($_SESSION['login']);
-        unset($_SESSION['password']);
+    /**
+     * Get this model errors array
+     * @return type
+     */
+    public function getErrors() {
+        return $this->errors;
     }
 
 }

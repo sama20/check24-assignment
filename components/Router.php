@@ -2,37 +2,21 @@
 
 namespace app\components;
 
+use app\components\base\Router as BaseRouter;
 
-class Router
+/**
+ * Class responsable for resolve the Requests router finding the controller and action that will futher be called.
+ * 
+ * @author moha.asghari@gmail.com
+ */
+class Router extends BaseRouter
 {
 
-    
-    private $controllerName;
-    private $actionName;
-
-  
     public function __construct($owner)
     {
-        $r = $_GET['r'] ?? $owner->getConfig('defaultRoute');
-        $aux = explode('/', $r);
-
-        if (count($aux) != 2) {
-            throw new \Exception('Route is not well configured');
-        }
-
-        $this->controllerName = $aux[0];
-        $this->actionName = $aux[1];
-    }
-
- 
-    public function getControllerName()
-    {
-        return $this->controllerName;
-    }
-
-
-    public function getActionName()
-    {
-        return $this->actionName;
+        parent::__construct($owner);
+        /**
+         * Implement here if you have a diferent route.
+         */
     }
 }
